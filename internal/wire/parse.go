@@ -352,7 +352,7 @@ func Load(ctx context.Context, wd string, env []string, tags string, patterns []
 func load(ctx context.Context, wd string, env []string, tags string, patterns []string) ([]*packages.Package, []error) {
 	cfg := &packages.Config{
 		Context:    ctx,
-		Mode:       packages.NeedName | packages.NeedFiles,
+		Mode:       packages.NeedName | packages.NeedFiles | packages.NeedCompiledGoFiles | packages.NeedImports | packages.NeedTypes | packages.NeedSyntax | packages.NeedTypesInfo,
 		Dir:        wd,
 		Env:        env,
 		BuildFlags: []string{"-tags=wireinject"},
